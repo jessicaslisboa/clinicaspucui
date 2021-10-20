@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1>Pacientes</h1>
+
+  <a href="#" [routerLink]="['/pacientes/novo']" class="btn btn-success">Novo Paciente</a>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th width="220px">Action</th>
+    </tr>
+
+    <tr *ngFor="let paciente of pacientes">
+      <td>{{ paciente.codigo}}</td>
+      <td>{{ paciente.nome}}</td>
+      <td>{{paciente.email }}</td>
+      <td>
+        <a href="#" [routerLink]="['/pacientes', paciente.codigo]" class="btn btn-info">View</a>
+        <a href="#" [routerLink]="['/pacientes', paciente.codigo,'edit']" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="remove(paciente.codigo)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

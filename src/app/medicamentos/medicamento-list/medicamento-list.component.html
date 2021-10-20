@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h1> Lista de Medicamentos</h1>
+
+  <a href="#" [routerLink]="['/medicamentos/novo']" class="btn btn-success">Novo Medicamento</a>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Nome Generico</th>
+      <th>Fabricante</th>
+      <th width="220px">Action</th>
+    </tr>
+
+    <tr *ngFor="let medicamento of medicamentos">
+      <td>{{ medicamento.codigo}}</td>
+      <td>{{ medicamento.nome}}</td>
+      <td>{{medicamento.nomeGenerico }}</td>
+      <td>{{medicamento.fabricante }}</td>
+      <td>
+        <a href="#" [routerLink]="['/medicamentos/', medicamento.codigo]" class="btn btn-info">View</a>
+        <a href="#" [routerLink]="['/medicamentos', medicamento.codigo,'edit']" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="remove(medicamento.codigo)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+
+<div class="container">
+
+  <h1>Cadastrar Paciente</h1>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+
+    <div class="form-group">
+      <label >Nome:</label>
+      <input [(ngModel)]="paciente.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>CPF:</label>
+      <input type="text" [(ngModel)]="paciente.cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" >
+    </div>
+
+    <div class="form-group">
+      <label>RUA:</label>
+      <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="endereco.logradouro" placeholder="" class="form-control input-md" >
+    </div>
+
+    <button class="btn btn-primary" type="submit" >Submit</button>
+    <a href="#"  [routerLink]="['/pacientes']" class="btn btn-secondary">Voltar</a>
+
+  </form>
+</div>

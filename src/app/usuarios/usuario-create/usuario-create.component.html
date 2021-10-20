@@ -1,0 +1,34 @@
+
+<div class="container">
+
+  <h1>Cadastrar Usuario</h1>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+
+    <div class="form-group">
+      <label >Nome:</label>
+      <input [(ngModel)]="usuario.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="text" [(ngModel)]="usuario.email" name="email" placeholder="Apenas números" class="form-control input-md" >
+    </div>
+
+    <div class="form-group">
+      <label>Perfil:</label>
+      <select class="form-select" [(ngModel)]="usuario.perfil.codigo" name="perfil.codigo" required>
+        <option *ngFor="let perfil of perfis"  [value]="perfil.codigo">{{perfil.nome}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Senha:</label>
+      <input type="password" [(ngModel)]="usuario.senha" name="senha" placeholder="" class="form-control input-md" >
+    </div>
+
+    <button class="btn btn-primary" type="submit" >Submit</button>
+    <a href="#"  [routerLink]="['/usuarios']" class="btn btn-secondary">Voltar</a>
+
+  </form>
+</div>
