@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,9 @@ import { AgendaModule } from './agendas/agendas.module';
 import { UsuarioCreateComponent } from './usuarios/usuario-create/usuario-create.component';
 import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
 import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.component';
+import { LoginComponent } from './usuarios/login/login.component';
+import { UsuarioService } from './usuarios/shared/usuario.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -24,10 +28,12 @@ import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.compo
     UsuarioCreateComponent,
     UsuarioListComponent,
     UsuarioEditComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    Ng2SearchPipeModule,
     HttpClientModule,
     PacientesModule,
     MedicamentoModule,
@@ -35,7 +41,7 @@ import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.compo
     ConsultaModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [UsuarioService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

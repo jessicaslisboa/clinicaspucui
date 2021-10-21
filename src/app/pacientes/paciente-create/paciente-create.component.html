@@ -1,27 +1,65 @@
-
 <div class="container">
 
-  <h1>Cadastrar Paciente</h1>
+  <div class="card">
+    <h5 class="card-header bg-light ">Cadastrar Paciente</h5>
+  </div>
 
   <form (ngSubmit)="submit()" #form="ngForm">
 
-    <div class="form-group">
-      <label >Nome:</label>
-      <input [(ngModel)]="paciente.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+    <div class="container p-3 border bg-light mb-2">
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+        <input [(ngModel)]="paciente.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Data</span>
+        <input type="text" [(ngModel)]="paciente.cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" >
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nascimento</span>
+        <input type="date" [(ngModel)]="paciente.dataNascimento" name="dataNascimento"  class="form-control" >
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="addon-wrapping">@</span>
+        <input type="email" [(ngModel)]="paciente.email" name="email" placeholder="e-mail" class="form-control" >
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>CPF:</label>
-      <input type="text" [(ngModel)]="paciente.cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" >
+    <div class="container p-3 border bg-light mb-2">
+      <div id="endereco">
+
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
+          <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="endereco.logradouro" placeholder="Rua/Av./Logradouro" class="form-control input-md" >
+        </div>
+
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="inputGroup-sizing-default">Número</span>
+          <input type="text" [(ngModel)]="paciente.endereco.numero" name="endereco.numero" placeholder="Número" class="form-control input-md" >
+        </div>
+
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+          <input type="text" [(ngModel)]="paciente.endereco.bairro" name="endereco.bairro" placeholder="Bairro" class="form-control input-md" >
+        </div>
+
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="inputGroup-sizing-default">Cidade</span>
+          <input type="text" [(ngModel)]="paciente.endereco.cidade" name="endereco.cidade" placeholder="Cidade" class="form-control input-md" >
+        </div>
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="inputGroup-sizing-default">Estado</span>
+          <input type="text" [(ngModel)]="paciente.endereco.uf" name="endereco.uf" placeholder="Estado" class="form-control input-md" >
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>RUA:</label>
-      <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="endereco.logradouro" placeholder="" class="form-control input-md" >
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <button class="btn btn-primary " type="submit" >Salvar</button>
+      <button type="button" [routerLink]="['/pacientes']" class="btn btn-secondary">Voltar</button>
     </div>
-
-    <button class="btn btn-primary" type="submit" >Submit</button>
-    <a href="#"  [routerLink]="['/pacientes']" class="btn btn-secondary">Voltar</a>
-
   </form>
 </div>

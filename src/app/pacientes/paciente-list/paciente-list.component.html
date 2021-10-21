@@ -1,26 +1,40 @@
 <div class="container">
-
-  <h1>Pacientes</h1>
-
-  <a href="#" [routerLink]="['/pacientes/novo']" class="btn btn-success">Novo Paciente</a>
-
-  <table class="table table-bordered">
-    <tr>
-      <th>Código</th>
-      <th>Nome</th>
-      <th>Email</th>
-      <th width="220px">Action</th>
-    </tr>
-
-    <tr *ngFor="let paciente of pacientes">
-      <td>{{ paciente.codigo}}</td>
-      <td>{{ paciente.nome}}</td>
-      <td>{{paciente.email }}</td>
-      <td>
-        <a href="#" [routerLink]="['/pacientes', paciente.codigo]" class="btn btn-info">View</a>
-        <a href="#" [routerLink]="['/pacientes', paciente.codigo,'edit']" class="btn btn-primary">Edit</a>
-        <button type="button" (click)="remove(paciente.codigo)" class="btn btn-danger">Delete</button>
-      </td>
-    </tr>
+  <table class="table">
+    <thead>
+      <tr>
+      <th>
+        <div class="form-outline mb-4">
+          <input type="search" class="form-control" [(ngModel)]="term" placeholder="Buscar">
+        </div>
+      </th>
+      <th></th>
+      <th></th>
+      <th>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+          <a href="#" [routerLink]="['/pacientes/novo']" class="btn btn-primary">Novo Paciente</a>
+        </div>
+      </th>
+      </tr>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col" width="250px">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paciente of pacientes | filter:term">
+        <td>{{ paciente.codigo }}</td>
+        <td>{{ paciente.nome}}</td>
+        <td>{{paciente.email }}</td>
+        <td>
+          <div class="btn-group">
+            <button type="button" [routerLink]="['/pacientes', paciente.codigo]" class="btn btn-secondary">View</button>
+            <button type="button" [routerLink]="['/pacientes', paciente.codigo,'edit']" class="btn btn-primary">Edit</button>
+            <button type="button" (click)="remove(paciente.codigo)" class="btn btn-danger">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>

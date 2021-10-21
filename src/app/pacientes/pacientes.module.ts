@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { PacienteViewComponent } from './paciente-view/paciente-view.component';
 import { PacienteEditComponent } from './paciente-edit/paciente-edit.component';
@@ -14,6 +15,7 @@ import { PacientesRoutingModule } from './pacientes.routing.module';
   imports:[
     CommonModule,
     FormsModule,
+    Ng2SearchPipeModule,
     PacientesRoutingModule
   ],
   exports:[],

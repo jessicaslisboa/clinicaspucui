@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { Usuario } from './usuario';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Perfil } from './perfil';
@@ -10,12 +11,22 @@ import { Perfil } from './perfil';
 })
 export class UsuarioService {
 
+  private usuarioAutenticado : boolean = false;
+
+  mostrarMenuEmitter = new EventEmitter<boolean>();
+
   usuarioUrl = '/api/clinicaspuc/rs/usuario/';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient) {}
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+
+  userEstaAutenticado(){
+    return this.usuarioAutenticado;
   }
 
   listAll(): Observable<Usuario[]>{
@@ -32,6 +43,12 @@ export class UsuarioService {
     );
   }
 
+  listUsuarioPorPefil(codigoPerfil:number): Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.usuarioUrl+'perfil/'+codigoPerfil)
+    .pipe(
+      catchError(this.errorHandler)
+    );
+  }
 
   salvar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(this.usuarioUrl, JSON.stringify(usuario), this.httpOptions)
@@ -61,7 +78,6 @@ export class UsuarioService {
     )
   }
 
-
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -72,4 +88,19 @@ export class UsuarioService {
 
     return throwError(errorMessage);
  }
+
+ logar(usuario: Usuario){
+  if(usuario.email=='teste@teste' && usuario.senha=='123'){
+    this.usuarioAutenticado = true;
+
+    this.mostrarMenuEmitter.emit(true);
+
+    this.router.navigate(['/']);
+
+  }else{
+    this.usuarioAutenticado = false;
+    this.mostrarMenuEmitter.emit(false);
+  }
+ }
+
 }

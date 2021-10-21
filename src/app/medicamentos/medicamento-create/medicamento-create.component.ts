@@ -22,7 +22,7 @@ export class MedicamentoCreateComponent implements OnInit {
 
   submit(){
     this.medicamentoService.salvar(this.medicamento).subscribe(res => {
-      this.router.navigate(['']);
+      this.router.navigate(['/medicamentos']);
     })
   }
 

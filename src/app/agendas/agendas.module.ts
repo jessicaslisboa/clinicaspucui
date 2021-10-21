@@ -7,6 +7,7 @@ import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { AgendaEditComponent } from './agenda-edit/agenda-edit.component';
 import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
 import { AgendaRoutingModule } from './agendas.routing.modules';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -14,6 +15,7 @@ import { AgendaRoutingModule } from './agendas.routing.modules';
   imports:[
     CommonModule,
     FormsModule,
+    Ng2SearchPipeModule,
     AgendaRoutingModule
   ],
   exports:[],

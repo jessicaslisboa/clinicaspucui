@@ -10,6 +10,7 @@ import { Medicamento } from '../shared/medicamento';
 export class MedicamentoListComponent implements OnInit {
 
   medicamentos : Array<Medicamento>;
+  term:string;
 
   constructor(private medicamentoService: MedicamentoService) { }
 

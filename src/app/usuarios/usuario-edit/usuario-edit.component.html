@@ -1,33 +1,37 @@
 <div class="container">
 
-  <h1>Editar Usuario</h1>
+  <div class="card">
+    <h5 class="card-header bg-light ">Cadastrar Usuarios</h5>
+  </div>
 
   <form (ngSubmit)="submit()" #form="ngForm">
+    <div class="container p-3 border bg-light mb-2">
 
-    <div class="form-group">
-      <label >Nome:</label>
-      <input [(ngModel)]="usuario.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+        <input [(ngModel)]="usuario.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="addon-wrapping">@</span>
+        <input type="text" [(ngModel)]="usuario.email" name="email" placeholder="Apenas números" class="form-control input-md" >
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Perfil</span>
+        <select class="form-select" [(ngModel)]="usuario.perfil.codigo" name="perfil.codigo" required>
+          <option *ngFor="let perfil of perfis"  [value]="perfil.codigo">{{perfil.nome}}</option>
+        </select>
+      </div>
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Senha</span>
+        <input type="password" [(ngModel)]="usuario.senha" name="senha" placeholder="" class="form-control input-md" >
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+        <button class="btn btn-primary " type="submit" >Salvar</button>
+        <button type="button" [routerLink]="['/usuarios']" class="btn btn-secondary">Voltar</button>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label>Email:</label>
-      <input type="text" [(ngModel)]="usuario.email" name="email" placeholder="Email" class="form-control input-md" >
-    </div>
-
-    <div class="form-group">
-      <label>Perfil:</label>
-      <select class="form-select" [(ngModel)]="usuario.perfil.codigo" name="perfil.codigo" required>
-        <option *ngFor="let perfil of perfis"  [value]="perfil.codigo">{{perfil.nome}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Senha:</label>
-      <input type="password" [(ngModel)]="usuario.senha" name="senha" placeholder="Email" class="form-control input-md" >
-    </div>
-
-
-    <button class="btn btn-primary" type="submit" >Submit</button>
-    <a href="#"  [routerLink]="['/usuarios']" class="btn btn-secondary">Voltar</a>
   </form>
 </div>

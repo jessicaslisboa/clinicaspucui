@@ -1,1 +1,31 @@
-<p>agenda-edit works!</p>
+<div class="container">
+
+  <div class="card">
+    <h5 class="card-header bg-light ">Editar Médica</h5>
+  </div>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+
+    <div class="container p-3 border bg-light mb-2">
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Médico</span>
+        <select class="form-select" [(ngModel)]="agenda.usuario.codigo" name="usuario.codigo" required>
+          <option *ngFor="let medico of medicos"  [value]="medico.codigo">{{medico.nome}}</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Data</span>
+        <input [(ngModel)]="agenda.data" required name="data" type="datetime-local" class="form-control">
+      </div>
+
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <button class="btn btn-primary " type="submit" >Salvar</button>
+      <button type="button" [routerLink]="['/agendas']" class="btn btn-secondary">Voltar</button>
+    </div>
+  </form>
+</div>
+

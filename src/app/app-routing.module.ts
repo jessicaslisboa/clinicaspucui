@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './usuarios/login/login.component';
 import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,10 +11,20 @@ import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.compo
 
 const routes: Routes = [
 
-  { path: '', component: HomeComponent},
-  { path: 'usuarios', component: UsuarioListComponent},
-  { path: 'usuarios/novo', component: UsuarioCreateComponent},
-  { path: 'usuarios/:id/edit', component: UsuarioEditComponent}
+  { path: '', component: HomeComponent,
+    canActivate: [AuthGuard]},
+
+  { path: 'login', component: LoginComponent},
+
+  { path: 'usuarios', component: UsuarioListComponent,
+    canActivate: [AuthGuard]},
+
+  { path: 'usuarios/novo', component: UsuarioCreateComponent,
+    canActivate: [AuthGuard]},
+
+  { path: 'usuarios/:id/edit', component: UsuarioEditComponent,
+    canActivate: [AuthGuard]}
+
 
 ];
 

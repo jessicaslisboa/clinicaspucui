@@ -1,1 +1,37 @@
-<p>agenda-list works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+      <th>
+        <div class="form-outline mb-4">
+          <input type="search" class="form-control" [(ngModel)]="term" placeholder="Buscar">
+        </div>
+      </th>
+      <th></th>
+      <th></th>
+      <th>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+          <a href="#" [routerLink]="['/agendas/novo']" class="btn btn-primary">Nova Agenda</a>
+        </div>
+      </th>
+      </tr>
+      <tr>
+        <th scope="col">Médico</th>
+        <th scope="col">Data</th>
+        <th scope="col" width="250px">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agenda of agendas | filter:term">
+        <td>{{ agenda.usuario.nome}}</td>
+        <td>{{ agenda.data }}</td>
+        <td>
+          <div class="btn-group">
+            <button type="button" [routerLink]="['/agendas', agenda.codigo,'edit']" class="btn btn-primary">Editar</button>
+            <button type="button" (click)="remove(agenda.codigo)" class="btn btn-danger">Deletar</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

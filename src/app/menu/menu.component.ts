@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../usuarios/shared/usuario.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  isNavbarCollapsed=true;
+  mostrarMenu: boolean = false;
 
-  constructor() { }
+  constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit() {
+    this.usuarioService.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
   }
 
 }

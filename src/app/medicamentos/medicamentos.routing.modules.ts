@@ -5,15 +5,16 @@ import { MedicamentoCreateComponent } from './medicamento-create/medicamento-cre
 import { MedicamentoListComponent } from './medicamento-list/medicamento-list.component';
 import { MedicamentoEditComponent } from './medicamento-edit/medicamento-edit.component';
 import { MedicamentoViewComponent } from './medicamento-view/medicamento-view.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 
 const routes: Routes = [
 
-  { path: 'medicamentos', component: MedicamentoListComponent},
-  { path: 'medicamentos/novo', component: MedicamentoCreateComponent},
-  { path: 'medicamentos/:id', component: MedicamentoViewComponent},
-  { path: 'medicamentos/:id/edit', component: MedicamentoEditComponent},
+  { path: 'medicamentos', component: MedicamentoListComponent,canActivate: [AuthGuard]},
+  { path: 'medicamentos/novo', component: MedicamentoCreateComponent,canActivate: [AuthGuard]},
+  { path: 'medicamentos/:id', component: MedicamentoViewComponent,canActivate: [AuthGuard]},
+  { path: 'medicamentos/:id/edit', component: MedicamentoEditComponent,canActivate: [AuthGuard]},
 
 ];
 

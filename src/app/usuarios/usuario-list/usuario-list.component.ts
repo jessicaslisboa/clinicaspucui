@@ -9,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioListComponent implements OnInit {
 
-
   usuarios : Array<Usuario>;
-
+  term:string;
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {

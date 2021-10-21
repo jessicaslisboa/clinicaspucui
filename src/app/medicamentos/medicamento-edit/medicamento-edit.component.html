@@ -1,1 +1,32 @@
-<p>medicamento-edit works!</p>
+<div class="container">
+
+  <div class="card">
+    <h5 class="card-header bg-light ">Editar Medicamento</h5>
+  </div>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+    <div class="container p-3 border bg-light mb-2">
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+        <input [(ngModel)]="medicamento.nome" required  placeholder="Nome Medicamento" name="nome" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Genérico</span>
+        <input type="text" [(ngModel)]="medicamento.nomeGenerico" name="nomeGenerico" placeholder="Nome Generico" class="form-control input-md" >
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Fabricante</span>
+        <input type="text" [(ngModel)]="medicamento.fabricante" name="fabricante" placeholder="Fabricante" class="form-control input-md" >
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+        <button class="btn btn-primary " type="submit" >Salvar</button>
+        <button type="button" [routerLink]="['/medicamentos']" class="btn btn-secondary">Voltar</button>
+      </div>
+
+    </div>
+  </form>
+</div>

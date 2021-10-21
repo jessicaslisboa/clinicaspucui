@@ -8,6 +8,7 @@ import { MedicamentoListComponent } from './medicamento-list/medicamento-list.co
 import { MedicamentoEditComponent } from './medicamento-edit/medicamento-edit.component';
 import { MedicamentoCreateComponent } from './medicamento-create/medicamento-create.component';
 import { MedicamentoService } from './shared/medicamento.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -15,6 +16,7 @@ import { MedicamentoService } from './shared/medicamento.service';
   imports:[
     CommonModule,
     FormsModule,
+    Ng2SearchPipeModule,
     MedicamentosRoutingModule
   ],
   exports:[],

@@ -10,7 +10,7 @@ import { Paciente } from '../shared/paciente';
 export class PacienteListComponent implements OnInit {
 
   pacientes : Array<Paciente>;
-
+  term: string;
   constructor(private pacienteService : PacienteService) { }
 
   ngOnInit() {

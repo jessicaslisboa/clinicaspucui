@@ -1,4 +1,6 @@
+import { AgendaService } from './../shared/agenda.service';
 import { Component, OnInit } from '@angular/core';
+import { Agenda } from '../shared/agenda';
 
 @Component({
   selector: 'app-agenda-list',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaListComponent implements OnInit {
 
-  constructor() { }
+  agendas : Array<Agenda>;
+  term: string;
+
+  constructor(private agendaService: AgendaService) { }
 
   ngOnInit() {
+    this.listar();
   }
 
+  listar(){
+    this.agendaService.listAll()
+    .subscribe(dados => this.agendas = dados)
+  }
+
+  remove(codigo: number){
+    this.agendaService.remover(codigo).subscribe(res => {
+      this.agendas = this.agendas.filter(item => item.codigo !== codigo);
+    })
+  }
 }
