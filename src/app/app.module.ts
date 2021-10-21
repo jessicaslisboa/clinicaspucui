@@ -19,6 +19,7 @@ import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.compo
 import { LoginComponent } from './usuarios/login/login.component';
 import { UsuarioService } from './usuarios/shared/usuario.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     UsuarioListComponent,
     UsuarioEditComponent,
     LoginComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ConsultaModule,
     AppRoutingModule,
   ],
+  entryComponents:[ConfirmModalComponent],
   providers: [UsuarioService, AuthGuard],
   bootstrap: [AppComponent]
 })

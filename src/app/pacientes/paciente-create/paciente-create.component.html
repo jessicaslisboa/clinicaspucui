@@ -24,7 +24,7 @@
 
       <div class="input-group mb-2">
         <span class="input-group-text" id="addon-wrapping">@</span>
-        <input type="email" [(ngModel)]="paciente.email" name="email" placeholder="e-mail" class="form-control" >
+        <input type="email" [(ngModel)]="paciente.email" required email #email name="email" placeholder="e-mail" class="form-control" >
       </div>
     </div>
 
@@ -58,7 +58,7 @@
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
-      <button class="btn btn-primary " type="submit" >Salvar</button>
+      <button class="btn btn-primary " type="submit"  [disabled]="form.invalid" >Salvar</button>
       <button type="button" [routerLink]="['/pacientes']" class="btn btn-secondary">Voltar</button>
     </div>
   </form>

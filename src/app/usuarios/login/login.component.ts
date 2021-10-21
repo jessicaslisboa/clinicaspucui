@@ -9,7 +9,7 @@ import { UsuarioService } from '../shared/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  private usuario:Usuario = new Usuario;
+  usuario:Usuario = new Usuario;
 
   constructor(private usuariosService: UsuarioService) { }
 
