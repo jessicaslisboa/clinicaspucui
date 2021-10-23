@@ -1,3 +1,4 @@
+import { Exame } from './exame';
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Consulta } from './consulta';
@@ -8,6 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ConsultaService {
+
 
   consultaUrl = '/api/clinicaspuc/rs/consulta/';
 
@@ -33,6 +35,26 @@ export class ConsultaService {
     );
   }
 
+  remover(codigo : number){
+    return this.http.delete<Consulta>(this.consultaUrl + codigo, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  listaExames() : Observable<Exame[]>{
+    return this.http.get<Exame[]>(this.consultaUrl+'exames')
+    .pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
+  encontrar(codigo: number) : Observable<Consulta> {
+    return this.http.get<Consulta>(this.consultaUrl + codigo)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';

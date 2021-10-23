@@ -24,8 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
 
-  cancelar(){
-
+  cancelar(codigo: number){
+    this.consultaService.remover(codigo).subscribe(res => {
+      this.consultas = this.consultas.filter(item => item.codigo !== codigo);
+    })
   }
 
 }

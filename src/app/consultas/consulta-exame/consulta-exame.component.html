@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="container p-3 border bg-light mb-2">
+
+    <div class="input-group mb-2">
+      <span class="input-group-text" id="inputGroup-sizing-default">Exame</span>
+      <select class="form-select" [(ngModel)]="exame.codigo" name="codigo" >
+        <option *ngFor="let exame of exames"  [value]="exame.codigo">{{exame.nome}}</option>
+      </select>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <button class="btn btn-primary " type="button" (click)="solicitar()">Adicionar</button>
+    </div>
+  </div>
+
+</div>

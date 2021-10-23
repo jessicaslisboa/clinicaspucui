@@ -19,7 +19,7 @@ import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.compo
 import { LoginComponent } from './usuarios/login/login.component';
 import { UsuarioService } from './usuarios/shared/usuario.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.component';
+import { ReceitaCreateComponent } from './receitas/receita-create/receita-create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.comp
     UsuarioListComponent,
     UsuarioEditComponent,
     LoginComponent,
-    ConfirmModalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,7 @@ import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.comp
     ConsultaModule,
     AppRoutingModule,
   ],
-  entryComponents:[ConfirmModalComponent],
+  entryComponents:[],
   providers: [UsuarioService, AuthGuard],
   bootstrap: [AppComponent]
 })

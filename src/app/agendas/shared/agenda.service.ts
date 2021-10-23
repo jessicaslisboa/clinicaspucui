@@ -40,6 +40,7 @@ export class AgendaService {
   }
 
   salvar(agenda: Agenda): Observable<Agenda>{
+    console.log(JSON.stringify(agenda));
     return this.http.post<Agenda>(this.agendaUrl, JSON.stringify(agenda), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)

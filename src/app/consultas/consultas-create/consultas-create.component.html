@@ -18,7 +18,7 @@
       <div class="input-group mb-2">
         <span class="input-group-text" id="inputGroup-sizing-default">Médico</span>
         <select class="form-select" [(ngModel)]="consulta.agenda.codigo" name="agenda.codigo" required>
-          <option *ngFor="let agenda of agendas"  [value]="agenda.codigo">{{agenda.usuario.nome}} - {{agenda.data}}</option>
+          <option *ngFor="let agenda of agendas"  [value]="agenda.codigo">{{agenda.usuario.nome}} - {{agenda.data  | date: 'dd/MM/yyyy hh:mm' }}</option>
         </select>
       </div>
 

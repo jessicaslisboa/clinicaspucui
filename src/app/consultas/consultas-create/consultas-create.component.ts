@@ -43,7 +43,8 @@ export class ConsultasCreateComponent implements OnInit {
   }
 
   submit(){
-    this.consulta.realizda = false;
+    this.consulta.anotacao ='';
+    this.consulta.realizada = false;
     this.consultaService.salvar(this.consulta).subscribe(res => {
       this.router.navigate(['/']);
     })
