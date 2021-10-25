@@ -29,7 +29,7 @@ export class UsuarioCreateComponent implements OnInit {
 
   submit(){
     this.usuarioService.salvar(this.usuario).subscribe(res => {
-      this.router.navigate(['/usuario']);
+      this.router.navigate(['/usuarios']);
     })
   }
 

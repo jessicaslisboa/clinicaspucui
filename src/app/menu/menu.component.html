@@ -1,4 +1,4 @@
-<nav *ngIf="mostrarMenu" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav *ngIf="mostrarMenu" class="navbar navbar-expand-lg navbar-dark bg-dark" >
   <div class="container-fluid">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             Atendimento
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#" [routerLink]="['/consultas']" >Solicitar Exame</a></li>
+            <li><a class="dropdown-item" href="#" [routerLink]="['/exames']" >Solicitar Exame</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" [routerLink]="['/consultas/novo']" >Emitir Receita</a></li>
 
@@ -49,8 +49,35 @@
           </ul>
         </li>
 
-      </ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Relatorios
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" [routerLink]="['/medicamentos']">Consultas</a></li>
+          </ul>
+        </li>
 
+      </ul>
+    </div>
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-file-person"></i>
+        </a>
+
+        <ul  class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="#">Meu Perfil</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </li>
+      </ul>
     </div>
   </div>
+
 </nav>

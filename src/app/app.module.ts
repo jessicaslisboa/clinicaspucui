@@ -1,3 +1,4 @@
+import { ExameModule } from './exames/exames.module';
 import { AuthGuard } from './guards/auth.guard';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,7 @@ import { LoginComponent } from './usuarios/login/login.component';
 import { UsuarioService } from './usuarios/shared/usuario.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReceitaCreateComponent } from './receitas/receita-create/receita-create.component';
+import { ExameSolicitarComponent } from './exames/exame-solicitar/exame-solicitar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { ReceitaCreateComponent } from './receitas/receita-create/receita-create
     UsuarioEditComponent,
     LoginComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { ReceitaCreateComponent } from './receitas/receita-create/receita-create
     MedicamentoModule,
     AgendaModule,
     ConsultaModule,
+    ExameModule,
     AppRoutingModule,
   ],
   entryComponents:[],

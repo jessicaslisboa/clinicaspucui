@@ -1,0 +1,73 @@
+<div class="container">
+
+  <div class="card">
+    <h5 class="card-header bg-light ">Solicitar Exames</h5>
+  </div>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+
+    <div class="container p-3 border bg-light mb-2">
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Paciente</span>
+        <select class="form-select" [(ngModel)]="paciente.codigo" name="codigo" required>
+          <option *ngFor="let paciente of pacientes"  [value]="paciente.codigo">{{paciente.nome}}</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Exame</span>
+        <select class="form-select" [(ngModel)]="exame.codigo" name="codigo" required>
+          <option *ngFor="let exame of exames"  [value]="exame.codigo">{{exame.nome}}</option>
+        </select>
+      </div>
+
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+        <button class="btn btn-primary " type="button" (click)="adicionar()">Adicionar</button>
+      </div>
+
+    </div>
+
+    <div class="accordion mb-3" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Exames
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="container">
+              <table class="table">
+
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col" width="250px">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let exame of examesSelecionados">
+                    <td>{{ exame.nome }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button type="button" (click)="remove(exame.codigo)" class="btn btn-danger">Deletar</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <button class="btn btn-primary " type="submit"  >Solcitar</button>
+      <button type="button" [routerLink]="['/']" class="btn btn-secondary">Voltar</button>
+    </div>
+
+  </form>
+</div>
