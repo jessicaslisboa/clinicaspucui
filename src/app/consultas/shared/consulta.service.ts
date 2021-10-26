@@ -56,6 +56,14 @@ export class ConsultaService {
     )
   }
 
+  editar(codigo: number, consulta : Consulta): Observable<Consulta> {
+    return this.http.put<Consulta>(this.consultaUrl + codigo, JSON.stringify(consulta), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

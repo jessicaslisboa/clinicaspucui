@@ -1,4 +1,4 @@
-import { ConsultaAtendimentoComponent } from './consulta-atendimento/consulta-atendimento.component';
+import { ConsultaEditComponent } from './consulta-edit/consulta-edit.component';
 import { ConsultasCreateComponent } from './consultas-create/consultas-create.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +11,7 @@ import { AuthGuard } from '../guards/auth.guard';
 const routes: Routes = [
 
   { path: 'consultas', component: ConsultaListComponent,canActivate: [AuthGuard]},
-  { path: 'consultas/atendimento/:id', component: ConsultaAtendimentoComponent,canActivate: [AuthGuard]},
+  { path: 'consultas/:id/edit', component: ConsultaEditComponent, canActivate: [AuthGuard]},
   { path: 'consultas/novo', component: ConsultasCreateComponent,canActivate: [AuthGuard]},
 
 ];

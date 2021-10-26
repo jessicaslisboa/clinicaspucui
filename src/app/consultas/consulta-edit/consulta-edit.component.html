@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="card">
+    <h5 class="card-header bg-light ">Marcar Consulta</h5>
+  </div>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+
+    <div class="container p-3 border bg-light mb-2">
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Paciente</span>
+        <input [(ngModel)]="consulta.paciente.nome" disabled  name="paciente.nome" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="inputGroup-sizing-default">Médico</span>
+        <select class="form-select" [(ngModel)]="consulta.agenda.codigo" name="agenda.codigo" required>
+          <option *ngFor="let agenda of agendas"  [value]="agenda.codigo">{{agenda.usuario.nome}} - {{agenda.data  | date: 'dd/MM/yyyy hh:mm' }}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <button class="btn btn-primary " type="submit" >Salvar</button>
+      <button type="button" [routerLink]="['/']" class="btn btn-secondary">Voltar</button>
+    </div>
+  </form>
+</div>

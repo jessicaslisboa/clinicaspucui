@@ -23,6 +23,7 @@ export class ReceitaCreateComponent implements OnInit {
   }
 
   adicionar(){
+    console.log(this.medicamentoReceita.medicamento.nome)
     this.medicamentosReceita.push(this.medicamentoReceita);
   }
 

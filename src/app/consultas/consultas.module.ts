@@ -1,4 +1,3 @@
-import { ReceitaCreateComponent } from './../receitas/receita-create/receita-create.component';
 import { ConsultaService } from './shared/consulta.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,8 +7,8 @@ import { ConsultaRoutingModule } from './consultas.routing.modules';
 import { ConsultaListComponent } from './consulta-list/consulta-list.component';
 import { ConsultasCreateComponent } from './consultas-create/consultas-create.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ConsultaAtendimentoComponent } from './consulta-atendimento/consulta-atendimento.component';
-import { ConsultaExameComponent } from './consulta-exame/consulta-exame.component';
+
+import { ConsultaEditComponent } from './consulta-edit/consulta-edit.component';
 
 
 
@@ -20,13 +19,11 @@ import { ConsultaExameComponent } from './consulta-exame/consulta-exame.componen
     Ng2SearchPipeModule,
     ConsultaRoutingModule
   ],
-  exports:[],
+  exports:[ConsultaListComponent],
   declarations:[
     ConsultaListComponent,
     ConsultasCreateComponent,
-    ConsultaAtendimentoComponent,
-    ReceitaCreateComponent,
-    ConsultaExameComponent
+    ConsultaEditComponent
   ],
   providers:[ConsultaService]
 })

@@ -1,3 +1,4 @@
+import { ReceitasModule } from './receitas/receitas.module';
 import { ExameModule } from './exames/exames.module';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -45,6 +46,7 @@ import { ExameSolicitarComponent } from './exames/exame-solicitar/exame-solicita
     AgendaModule,
     ConsultaModule,
     ExameModule,
+    ReceitasModule,
     AppRoutingModule,
   ],
   entryComponents:[],
