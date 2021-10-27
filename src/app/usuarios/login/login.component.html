@@ -1,17 +1,33 @@
-<h2 class="text-center">Entrar - firebase</h2>
 
-<div class="d-grid gap-2 col-6 mx-auto">
-  <label>Usuário</label>
-  <input [(ngModel)]="usuario.email" name="email" type="text" class="form-control validate" >
-</div>
+<section class="vh-100" style="background-color: #e3e5e9;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 tesxt-center">
 
-<div class="d-grid gap-2 col-6 mx-auto">
-  <label>Senha</label>
-  <input [(ngModel)]="usuario.senha" name="senha" type="password" class="form-control validate">
-</div>
+            <h3 class="mb-5 text-center">SGC - Login</h3>
 
-<div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-success" type="submit" name="action" (click)="login()">
-    Login
-  </button>
-</div>
+            <div class="form-outline mb-4 input-group">
+              <span class="input-group-text" id="addon-wrapping">E-mail</span>
+              <input [(ngModel)]="usuario.email" placeholder="e-mail" id="typeEmailX-2" name="email" type="email"  class="form-control form-control-lg">
+            </div>
+
+            <div class="form-outline mb-4 input-group">
+              <span class="input-group-text" id="addon-wrapping">Senha</span>
+              <input [(ngModel)]="usuario.senha"  id="typePasswordX-2" name="senha" type="password" class="form-control form-control-lg">
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" name="action" (click)="login()">Entrar</button>
+            </div>
+          </div>
+
+          <!--div class="mb-5 text-center">
+            <a href="#!" class="fw-bold">Quero me Cadastrar</a>
+          </div-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

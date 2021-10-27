@@ -35,7 +35,7 @@ export class ExameSolicitarComponent implements OnInit {
   }
 
   remove(codigo:number){
-
+    this.examesSelecionados.splice(codigo);
   }
 
   submit(){
