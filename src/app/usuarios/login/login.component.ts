@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private usuariosService: UsuarioService) { }
 
   ngOnInit() {
+
   }
 
   login(){

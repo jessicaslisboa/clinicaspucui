@@ -1,4 +1,9 @@
 <div class="container">
+
+  <div class="card">
+    <h5 class="card-header bg-light ">Emitir Receita</h5>
+  </div>
+
   <div class="container p-3 border bg-light mb-2">
     <div class="input-group mb-2">
       <span class="input-group-text" id="inputGroup-sizing-default">Medicamento</span>
@@ -38,7 +43,7 @@
     </table>
   </div>
   <div class="btn-group">
-    <button type="button" (click)="emitir()" class="btn btn-success">Emitir Receita</button>
+    <button type="button" (click)="emitir()" disabled class="btn btn-success">Emitir Receita</button>
     <button type="button" (click)="imprimir()" disabled class="btn btn-primary">Imprimir</button>
   </div>
 </div>

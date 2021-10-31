@@ -10,12 +10,14 @@
 
             <div class="form-outline mb-4 input-group">
               <span class="input-group-text" id="addon-wrapping">E-mail</span>
-              <input [(ngModel)]="usuario.email" placeholder="e-mail" id="typeEmailX-2" name="email" type="email"  class="form-control form-control-lg">
+              <input [(ngModel)]="usuario.email" placeholder="e-mail" id="typeEmailX-2" name="email" type="email"
+                required email class="form-control form-control-lg">
             </div>
 
             <div class="form-outline mb-4 input-group">
               <span class="input-group-text" id="addon-wrapping">Senha</span>
-              <input [(ngModel)]="usuario.senha"  id="typePasswordX-2" name="senha" type="password" class="form-control form-control-lg">
+              <input [(ngModel)]="usuario.senha"  id="typePasswordX-2"
+                required  name="senha" type="password" class="form-control form-control-lg">
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
               <button class="btn btn-primary btn-lg btn-block" type="submit" name="action" (click)="login()">Entrar</button>

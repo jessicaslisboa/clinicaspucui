@@ -9,12 +9,12 @@
     <div class="container p-3 border bg-light mb-2">
       <div class="input-group mb-2">
         <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
-        <input [(ngModel)]="paciente.nome" required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
+        <input [(ngModel)]="paciente.nome"  required  placeholder="Nome Completo" name="nome" type="text" class="form-control">
       </div>
 
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Data</span>
-        <input type="text" [(ngModel)]="paciente.cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" >
+      <div class="input-group mb-2" >
+        <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+        <input type="text" [(ngModel)]="paciente.cpf" id="cpf" required name="cpf" placeholder="Apenas números" class="form-control input-md" >
       </div>
 
       <div class="input-group mb-2">
@@ -24,7 +24,7 @@
 
       <div class="input-group mb-2">
         <span class="input-group-text" id="addon-wrapping">@</span>
-        <input type="email" [(ngModel)]="paciente.email" required email #email name="email" placeholder="e-mail" class="form-control" >
+        <input type="email" [(ngModel)]="paciente.email" required email name="email" placeholder="e-mail" class="form-control" >
       </div>
     </div>
 

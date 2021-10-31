@@ -90,7 +90,8 @@ export class UsuarioService {
  }
 
  logar(usuario: Usuario){
-  if(usuario.email=='teste@teste' && usuario.senha=='123'){
+  if((usuario.email=='jessica@teste.com' && usuario.senha=='123456') ||
+    (usuario.email=='ana@teste.com') &&(usuario.senha=='654321')){
     this.usuarioAutenticado = true;
 
     this.mostrarMenuEmitter.emit(true);
