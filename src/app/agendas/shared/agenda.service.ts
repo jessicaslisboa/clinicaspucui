@@ -10,7 +10,7 @@ import { Agenda } from './agenda';
 export class AgendaService {
 
 
-  agendaUrl = '/api/clinicaspuc/rs/agenda/';
+  agendaUrl = '/api/agenda/';
 
   constructor(private http: HttpClient) { }
 

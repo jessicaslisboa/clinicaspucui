@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class MedicamentoService {
 
-  medicamentoUrl = '/api/clinicaspuc/rs/medicamento/';
+  medicamentoUrl = '/api/medicamento/';
 
   constructor(private http: HttpClient) { }
   httpOptions = {

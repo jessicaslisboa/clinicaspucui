@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class PacienteService {
 
-  pacienteUrl = '/api/clinicaspuc/rs/paciente/';
+  pacienteUrl = '/api/paciente/';
 
   constructor(private http: HttpClient) {}
 

@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class ConsultaService {
 
 
-  consultaUrl = '/api/clinicaspuc/rs/consulta/';
+  consultaUrl = '/api/consulta/';
 
   constructor(
     private http: HttpClient
