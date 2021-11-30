@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class MedicamentoService {
 
-  medicamentoUrl = environment.api+'/medicamento/';
+  medicamentoUrl = environment.api+'medicamento/';
 
   constructor(private http: HttpClient) { }
   httpOptions = {

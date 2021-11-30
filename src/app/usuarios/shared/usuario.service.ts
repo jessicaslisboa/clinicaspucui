@@ -16,7 +16,7 @@ export class UsuarioService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  usuarioUrl = environment.api+'/usuario/';
+  usuarioUrl = environment.api+'usuario/';
 
   constructor(
     private router: Router,

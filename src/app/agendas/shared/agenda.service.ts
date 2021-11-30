@@ -11,7 +11,7 @@ import { Agenda } from './agenda';
 export class AgendaService {
 
 
-  agendaUrl = environment.api +'/agenda/';
+  agendaUrl = environment.api +'agenda/';
 
   constructor(private http: HttpClient) { }
 
