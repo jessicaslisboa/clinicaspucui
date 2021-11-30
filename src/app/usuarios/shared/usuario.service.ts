@@ -1,3 +1,4 @@
+import { UsuarioLogin } from './usuario-login';
 import { environment } from './../../../environments/environment.prod';
 import { Router } from '@angular/router';
 import { Usuario } from './usuario';
@@ -6,6 +7,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Perfil } from './perfil';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +15,20 @@ import { Perfil } from './perfil';
 export class UsuarioService {
 
   private usuarioAutenticado : boolean = false;
+  private usuarioLogin : UsuarioLogin = new UsuarioLogin();
+  private statusLogin: any;
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
   usuarioUrl = environment.api+'usuario/';
+  authUrl = environment.api+'auth';
 
   constructor(
     private router: Router,
     private http: HttpClient) {}
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"})
+    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"}),
   }
 
   userEstaAutenticado(){
@@ -91,18 +96,27 @@ export class UsuarioService {
  }
 
  logar(usuario: Usuario){
-  if((usuario.email=='jessica@teste.com' && usuario.senha=='123456') ||
-    (usuario.email=='ana@teste.com') &&(usuario.senha=='654321')){
-    this.usuarioAutenticado = true;
+  this.usuarioLogin.email = usuario.email;
+  this.usuarioLogin.senha = usuario.senha;
+  let result : Object;
 
+  if(this.http.post(this.authUrl, JSON.stringify(this.usuarioLogin), this.httpOptions)){
+    this.usuarioAutenticado = true;
+    sessionStorage.setItem(usuario.email,'user');
     this.mostrarMenuEmitter.emit(true);
 
     this.router.navigate(['/']);
-
   }else{
     this.usuarioAutenticado = false;
     this.mostrarMenuEmitter.emit(false);
   }
  }
+
+
+ logout() {
+  this.usuarioAutenticado = false;
+  //this.mostrarMenuEmitter.emit(false);
+  this.router.navigateByUrl('/login');
+}
 
 }
