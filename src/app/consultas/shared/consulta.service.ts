@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Exame } from './exame';
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -11,14 +12,14 @@ import { catchError } from 'rxjs/operators';
 export class ConsultaService {
 
 
-  consultaUrl = '/api/consulta/';
+  consultaUrl = environment.api+'consulta/';
 
   constructor(
     private http: HttpClient
   ) { }
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"})
   }
 
   salvar(consulta: Consulta):Observable<Consulta> {

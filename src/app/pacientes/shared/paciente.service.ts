@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Paciente } from './paciente';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,12 +10,12 @@ import { catchError } from 'rxjs/operators';
 })
 export class PacienteService {
 
-  pacienteUrl = '/api/paciente/';
+  pacienteUrl = environment.api+'/paciente/';
 
   constructor(private http: HttpClient) {}
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"})
   }
 
   listAll(): Observable<Paciente[]>{

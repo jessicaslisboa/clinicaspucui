@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Router } from '@angular/router';
 import { Usuario } from './usuario';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,14 +16,14 @@ export class UsuarioService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  usuarioUrl = '/api/usuario/';
+  usuarioUrl = environment.api+'/usuario/';
 
   constructor(
     private router: Router,
     private http: HttpClient) {}
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"})
   }
 
   userEstaAutenticado(){

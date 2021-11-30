@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://clinicaspuc.herokuapp.com/'
+  api: 'http://localhost:8080/'
 };
 
 /*

@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment.prod';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clinicaspucui';
+  apiUrl =  environment.api;
 }

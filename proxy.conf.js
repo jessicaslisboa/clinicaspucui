@@ -5,7 +5,8 @@ const PROXY_CONFIG  = [
         target: 'https://clinicaspuc.herokuapp.com/',
         secure: true,
         logLevel: 'debug',
-        pathRewrite: {'^/api':''}
+        pathRewrite: {'^/api':''},
+        changeOrigin: true
 
     }
 ];

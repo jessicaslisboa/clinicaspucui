@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -10,12 +11,12 @@ import { Agenda } from './agenda';
 export class AgendaService {
 
 
-  agendaUrl = '/api/agenda/';
+  agendaUrl = environment.api +'/agenda/';
 
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"})
   }
 
   listAll(): Observable<Agenda[]>{

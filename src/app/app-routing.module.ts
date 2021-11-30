@@ -23,8 +23,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]},
 
   { path: 'usuarios/:id/edit', component: UsuarioEditComponent,
-    canActivate: [AuthGuard]}
+    canActivate: [AuthGuard]},
 
+  { path: '**', redirectTo: ''}
 
 ];
 
